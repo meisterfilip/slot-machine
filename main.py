@@ -1,11 +1,6 @@
 # Herní automat v Pythonu
 from os import system
 
-isRunning = True
-penize = 100
-sazka = 10
-volba = 0
-
 def vypisZustatek():
     global penize
     print(f"Váš zůstatek je {penize} peněz!")
@@ -33,29 +28,39 @@ def upravitSazku():
         sazka = novaSazka
         print(f"Sázka nastavena na {sazka} peněz!")
 
-    
+def main():
 
-while isRunning:
-    print("#############################")
-    print("     Hlavní menu")
-    print("(1) Zobrazit zůstatek")
-    print("(2) Zatočit")
-    print("(3) Upravit sázku")
-    print("(4) Konec")
-    print("#############################")
+    isRunning = True
+    global penize
+    penize = 100
+    global sazka
+    sazka = 10
+    volba = 0
 
-    volba = input("Vyberte akci: ")
+    while isRunning:
+        print("#############################")
+        print("     Hlavní menu")
+        print("(1) Zobrazit zůstatek")
+        print("(2) Zatočit")
+        print("(3) Upravit sázku")
+        print("(4) Konec")
+        print("#############################")
 
-    system("cls")
+        volba = input("Vyberte akci: ")
 
-    if volba == "1":
-        vypisZustatek()
-        
-    elif volba == "2":
-        pass
+        system("cls")
 
-    elif volba == "3":
-        upravitSazku()
+        if volba == "1":
+            vypisZustatek()
+            
+        elif volba == "2":
+            pass
 
-    elif volba == "4":
-        isRunning = False
+        elif volba == "3":
+            upravitSazku()
+
+        elif volba == "4":
+            isRunning = False
+
+if __name__ == "__main__":
+    main()
