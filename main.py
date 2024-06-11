@@ -1,6 +1,7 @@
 # Herní automat v Pythonu
 from os import system
-#import random
+from random import randint
+from time import sleep
 
 def vypisZustatek():
     global penize
@@ -35,18 +36,26 @@ def upravitSazku():
 
 def spin():
     znaky: list[str] = ["🍒", "🍉", "🍋", "🔔", "⭐"]
-    kombinace: list[str]
+    kombinace: list[str] = ["  ", "  ", "  "]
     global penize
 
     if penize >= sazka:
         penize -= sazka
-        # Zde pokračovat zatočením...
+        # Zatočení
+
+        for i in range(3):
+            kombinace[i] = znaky[randint(0, 4)]
+
+            sleep(1)
+            system("cls")
+            print("----------")
+            print(f"|{kombinace[0]}|{kombinace[1]}|{kombinace[2]}|")
+            print("----------")
 
     else:
         print("Nedostatek kreditu!")
 
 def main():
-
     isRunning = True
     global penize
     penize = 100
@@ -56,6 +65,12 @@ def main():
     volby = ["1", "2", "3", "4"]
 
     while isRunning:
+
+        if penize == 0:
+            system("cls")
+            print("Váš kredit je 0, konec hry!")
+            break
+
         print("#############################")
         print("     Hlavní menu")
         print("(1) Zobrazit zůstatek")
