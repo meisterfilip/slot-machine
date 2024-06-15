@@ -43,15 +43,23 @@ def spin():
         penize -= sazka
 
         # Zatočení
-        sleep(1)
-
         for i in range(3):
+
+            # Animace točení
+            for j in range(10):
+                kombinace[i] = znaky[randint(0, 4)]
+                system("cls")
+                print("----------")
+                print(f"|{kombinace[0]}|{kombinace[1]}|{kombinace[2]}|")
+                print("----------")
+                sleep(0.05)
+
             kombinace[i] = znaky[randint(0, 4)]
             system("cls")
             print("----------")
             print(f"|{kombinace[0]}|{kombinace[1]}|{kombinace[2]}|")
             print("----------")
-            sleep(1)
+            sleep(0.5)
         
         # Vyhodnocení výhry nebo prohry
         if kombinace[0] == kombinace[1] == kombinace[2]:
