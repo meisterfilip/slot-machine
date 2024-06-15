@@ -12,6 +12,7 @@ def upravitSazku():
     global sazka
     withoutProblem = True
     novaSazka = input("Zadejte novou sázku: ")
+    system("cls")
 
     if not novaSazka.isdigit():
         print("Zadejte číslo!")
@@ -44,7 +45,6 @@ def spin():
 
         # Zatočení
         for i in range(3):
-
             # Animace točení
             for j in range(10):
                 kombinace[i] = znaky[randint(0, 4)]
@@ -86,10 +86,9 @@ def main():
     global sazka
     sazka = 10
     volba = 0
-    volby = ["1", "2", "3", "4"]
+    volby = ["1", "2", "3"]
 
     while isRunning:
-
         if penize == 0:
             system("cls")
             print("Váš kredit je 0, konec hry!")
@@ -98,10 +97,9 @@ def main():
         vypisZustatek()
         print("#############################")
         print("     Hlavní menu")
-        print("(1) Zobrazit zůstatek") # Fix
-        print("(2) Zatočit")
-        print("(3) Upravit sázku")
-        print("(4) Konec")
+        print("(1) Zatočit")
+        print("(2) Upravit sázku")
+        print("(3) Konec")
         print("#############################")
 
         volba = input("Vyberte akci: ")
@@ -115,17 +113,14 @@ def main():
         if volba not in volby:
             print("Vyberte číslo z menu!")
             continue
-
-        if volba == "1":
-            vypisZustatek()
             
-        elif volba == "2":
+        elif volba == "1":
             spin()
 
-        elif volba == "3":
+        elif volba == "2":
             upravitSazku()
 
-        elif volba == "4":
+        elif volba == "3":
             isRunning = False
 
 if __name__ == "__main__":
